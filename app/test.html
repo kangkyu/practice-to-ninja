@@ -1,15 +1,21 @@
 <!DOCTYPE html>
 
-<html ng-app>
+<html lang="en" ng-app="myApp">
+<!-- An AngularJS application bootstraps with the ng-app attribute (a directive) -->
     <head>
-        <title>My First AngularJS App</title>
+        <title>Finance Meter</title>
     </head>
-    <body ng-init="salary:0;percentage:0">
+    <body ng-controller="FinanceController">
+<!-- ng-init initializes your data models: the data to be presented on the UI (POJO) -->
         Your Salary?
         <input type="text" ng-model="salary">
+<!-- ng-model binds an input field with model data (establishes a two-way binding) -->
         <br>How much should you invest in gadgets?
         <input type="text" ng-model="percentage">%
-        <br>The amount to be spent in shopping will be:<span>{{salary*percentage*0.01}}</span>
-        <script src="lib/angular/angular.js"></script>
+        <br>The amount to be spent in shopping will be:<span>{{result() | currency}}</span>
+<!-- {{}} is called an expression, which is composed of one or more data models (from model to view) -->
+        <script type="text/javascript" src="lib/angular/angular.min.js"></script>
+        <script type="text/javascript" src="js/app.js"></script>
+        <script type="text/javascript" src="js/controllers.js"></script>
     </body>
 </html>
